@@ -4,7 +4,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 export default function DuckstarLanding() {
-  const [bonusLeft, setBonusLeft] = useState(1000);
+  const getDailyBonusStart = () => {
+  const base = 900; // base giornaliera
+  const today = new Date();
+  const seed = today.getDate() + today.getMonth() + today.getFullYear();
+  const variation = seed % 100; // sempre tra 0-99
+  return base + variation; // bonus iniziale tra 900 e 999
+};
+
+const [bonusLeft, setBonusLeft] = useState(() => {
+  const start = getDailyBonusStart();
+  const offset = Math.floor(Math.random() * 20); // simula affollamento
+  return start - offset;
+});
+
   const [timeLeft, setTimeLeft] = useState(300);
   const [showProof, setShowProof] = useState<null | { name: string; amount: string; time: string }>(null);
   const getBaseUserCount = () => {
@@ -41,7 +54,7 @@ const [userCount, setUserCount] = useState(() => {
 
     const bonusInterval = setInterval(() => {
       setBonusLeft((prev) => (prev > 0 ? prev - Math.floor(Math.random() * 3) + 1 : 0));
-    }, 12000);
+    }, 8000);
 
     const userInterval = setInterval(() => {
       setUserCount((prev) => prev + Math.floor(Math.random() * 3) + 1);
