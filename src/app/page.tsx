@@ -7,7 +7,20 @@ export default function DuckstarLanding() {
   const [bonusLeft, setBonusLeft] = useState(1000);
   const [timeLeft, setTimeLeft] = useState(300);
   const [showProof, setShowProof] = useState<null | { name: string; amount: string; time: string }>(null);
-  const [userCount, setUserCount] = useState(2847);
+  const getBaseUserCount = () => {
+  const base = 2500; // Numero iniziale
+  const startDate = new Date("2025-06-01"); // Data di inizio
+  const today = new Date();
+  const daysSince = Math.floor((today.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
+  return base + daysSince * 150; // +150 utenti al giorno
+};
+
+const [userCount, setUserCount] = useState(() => {
+  const dailyBase = getBaseUserCount();
+  const randomOffset = Math.floor(Math.random() * 30); // Simula variazione
+  return dailyBase + randomOffset;
+});
+
 
   const fakeProofs = useMemo(() => [
     { name: "Marco", amount: "50€", time: "Ora" },
@@ -106,7 +119,7 @@ export default function DuckstarLanding() {
           </div>
 
           <p className="text-lg sm:text-xl text-gray-700 mb-6 max-w-md mx-auto leading-relaxed">
-            <span className="font-bold text-green-600">{userCount}+ persone</span> hanno già ricevuto il bonus oggi!
+            <span className="font-bold text-green-600">{userCount}+ persone</span> hanno già ricevuto il bonus!
           </p>
 
           {/* CTA Buttons */}
@@ -146,7 +159,7 @@ export default function DuckstarLanding() {
                 <div key={i} className="w-8 h-8 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full border-2 border-white"></div>
               ))}
             </div>
-            <span>+{userCount} persone si sono registrate oggi</span>
+            <span>+{userCount} persone si sono registrate</span>
           </div>
         </motion.div>
       </section>
