@@ -332,8 +332,9 @@ export default function DuckstarLanding() {
         <div className="max-w-md mx-auto text-white">
           <h2 className="text-3xl font-bold mb-4">ULTIMO AVVISO! 🚨</h2>
           <p className="text-lg mb-6">
-            Tra {formatTime(timeLeft)} l'offerta SCADE per sempre
-          </p>
+  Tra {formatTime(timeLeft)} l&apos;offerta SCADE per sempre
+</p>
+
           <motion.button
             className="w-full bg-white text-green-600 py-4 px-8 rounded-2xl text-xl font-bold shadow-2xl mb-4"
             whileHover={{ scale: 1.05 }}
