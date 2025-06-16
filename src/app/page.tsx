@@ -133,7 +133,7 @@ return () => {
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >
-      🚀 PRENDI I 50€ ORA!
+      🚀 REGISTRATI E PRENDI I 50€ ORA!
     </motion.button>
   </a>
             
@@ -147,7 +147,7 @@ return () => {
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >
-      📝 COMPILA MODULO (STEP 2)
+      📝 COMPILA MODULO E OTTIENI 50€ (STEP 2)
     </motion.button>
   </a>
 </div>
