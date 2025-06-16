@@ -3,60 +3,49 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-
 export default function DuckstarLanding() {
   const [bonusLeft, setBonusLeft] = useState(1000);
   const [timeLeft, setTimeLeft] = useState(300); // 5 minuti
   const [showProof, setShowProof] = useState<null | { name: string; amount: string; time: string }>(null);
   const [userCount, setUserCount] = useState(2847);
 
-
-const fakeProofs = [
-  { name: "Marco", amount: "50€", time: "Ora" },
-  { name: "Sara", amount: "25€", time: "2 min fa" },
-  { name: "Luca", amount: "50€", time: "5 min fa" },
-  { name: "Giulia", amount: "30€", time: "1 min fa" },
-  { name: "Andrea", amount: "50€", time: "3 min fa" },
-  { name: "Valentina", amount: "40€", time: "4 min fa" },
-  { name: "Francesco", amount: "50€", time: "Adesso" },
-];
-
+  const fakeProofs = [
+    { name: "Marco", amount: "50€", time: "Ora" },
+    { name: "Sara", amount: "25€", time: "2 min fa" },
+    { name: "Luca", amount: "50€", time: "5 min fa" },
+    { name: "Giulia", amount: "30€", time: "1 min fa" },
+    { name: "Andrea", amount: "50€", time: "3 min fa" },
+    { name: "Valentina", amount: "40€", time: "4 min fa" },
+    { name: "Francesco", amount: "50€", time: "Adesso" },
+  ];
 
   useEffect(() => {
     document.title = "🔥 50€ GRATIS in 2 MINUTI | ULTIMI POSTI!";
 
-    // Countdown timer
     const timer = setInterval(() => {
       setTimeLeft((prev) => (prev > 0 ? prev - 1 : 300));
     }, 1000);
 
-    // Bonus counter
     const bonusInterval = setInterval(() => {
       setBonusLeft((prev) => (prev > 0 ? prev - Math.floor(Math.random() * 3) + 1 : 0));
     }, 12000);
 
-    // User counter
     const userInterval = setInterval(() => {
       setUserCount((prev) => prev + Math.floor(Math.random() * 3) + 1);
     }, 8000);
 
-    // Show proof popup
-    const randomProof = () => {
-  const index = Math.floor(Math.random() * fakeProofs.length);
-  return fakeProofs[index];
-};
+    const proofInterval = setInterval(() => {
+      const index = Math.floor(Math.random() * fakeProofs.length);
+      setShowProof(fakeProofs[index]);
+    }, 15000);
 
-const proofInterval = setInterval(() => {
-  setShowProof(randomProof());
-}, 15000); // ogni 15s appare una notifica
-
-return () => {
-  clearInterval(timer);
-  clearInterval(bonusInterval);
-  clearInterval(userInterval);
-  clearInterval(proofInterval);
-};
-  }, []);
+    return () => {
+      clearInterval(timer);
+      clearInterval(bonusInterval);
+      clearInterval(userInterval);
+      clearInterval(proofInterval);
+    };
+  }, [fakeProofs]);
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
@@ -66,7 +55,6 @@ return () => {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-red-50 via-yellow-50 to-green-50 text-center font-sans overflow-x-hidden">
-      {/* Sticky Alert Bar */}
       <div className="bg-gradient-to-r from-red-600 to-red-700 text-white py-3 text-sm font-bold shadow-lg sticky top-0 z-50 animate-pulse">
         <div className="flex items-center justify-center gap-2 px-2">
           <span className="animate-bounce">🚨</span>
