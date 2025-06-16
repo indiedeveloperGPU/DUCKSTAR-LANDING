@@ -217,7 +217,7 @@ const [userCount, setUserCount] = useState(() => {
               { 
                 step: "1", 
                 title: "CLICCA & REGISTRATI", 
-                desc: "30 secondi per attivare il bonus",
+                desc: "30 secondi per attivare il bonus | Conferma la registrazione caricando i tuoi documenti",
                 icon: "🚀",
                 color: "bg-green-500"
               },
