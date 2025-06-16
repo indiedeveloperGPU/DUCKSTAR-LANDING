@@ -350,7 +350,7 @@ export default function DuckstarLanding() {
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-300 text-xs py-6 px-4">
         <p className="opacity-75 max-w-lg mx-auto leading-relaxed">
-        Disclaimer: Duckstar Studios facilita l&apos;accesso a bonus promozionali. Non siamo affiliati con Amazon, Shein, o altri marchi. 
+        Disclaimer: Non siamo affiliati con Amazon, Shein, o altri marchi. 
         I pagamenti sono elaborati da terze parti autorizzate.
       </p>
       </footer>
