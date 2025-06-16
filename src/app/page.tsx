@@ -1,15 +1,15 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 export default function DuckstarLanding() {
   const [bonusLeft, setBonusLeft] = useState(1000);
-  const [timeLeft, setTimeLeft] = useState(300); // 5 minuti
+  const [timeLeft, setTimeLeft] = useState(300);
   const [showProof, setShowProof] = useState<null | { name: string; amount: string; time: string }>(null);
   const [userCount, setUserCount] = useState(2847);
 
-  const fakeProofs = [
+  const fakeProofs = useMemo(() => [
     { name: "Marco", amount: "50€", time: "Ora" },
     { name: "Sara", amount: "25€", time: "2 min fa" },
     { name: "Luca", amount: "50€", time: "5 min fa" },
@@ -17,7 +17,7 @@ export default function DuckstarLanding() {
     { name: "Andrea", amount: "50€", time: "3 min fa" },
     { name: "Valentina", amount: "40€", time: "4 min fa" },
     { name: "Francesco", amount: "50€", time: "Adesso" },
-  ];
+  ], []);
 
   useEffect(() => {
     document.title = "🔥 50€ GRATIS in 2 MINUTI | ULTIMI POSTI!";
@@ -300,7 +300,7 @@ export default function DuckstarLanding() {
                       +{testimonial.amount}
                     </span>
                   </div>
-                  <p className="text-gray-700 text-sm italic">"{testimonial.text}"</p>
+                  <p className="text-gray-700 text-sm italic">&quot;{testimonial.text}&quot;</p>
                   <p className="text-xs text-gray-500 mt-1">Ricevuto in {testimonial.time}</p>
                 </div>
               </div>
@@ -349,11 +349,10 @@ export default function DuckstarLanding() {
 
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-300 text-xs py-6 px-4">
-        <p className="mb-2">© 2025 Duckstar Studios. Tutti i diritti riservati.</p>
         <p className="opacity-75 max-w-lg mx-auto leading-relaxed">
-          Disclaimer: Duckstar Studios facilita l'accesso a bonus promozionali. Non siamo affiliati con Amazon, Shein, o altri marchi. 
-          I pagamenti sono elaborati da terze parti autorizzate.
-        </p>
+        Disclaimer: Duckstar Studios facilita l&apos;accesso a bonus promozionali. Non siamo affiliati con Amazon, Shein, o altri marchi. 
+        I pagamenti sono elaborati da terze parti autorizzate.
+      </p>
       </footer>
     </main>
   );
