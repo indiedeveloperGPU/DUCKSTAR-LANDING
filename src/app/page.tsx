@@ -147,7 +147,7 @@ const [userCount, setUserCount] = useState(() => {
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >
-      🚀 REGISTRATI E PRENDI I 50€ ORA!
+      🚀 STEP 1: REGISTRATI ORA (30 sec)
     </motion.button>
   </a>
             
@@ -161,7 +161,7 @@ const [userCount, setUserCount] = useState(() => {
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >
-      📝 COMPILA MODULO E OTTIENI 50€ (STEP 2)
+      📝 STEP 2: COMPILA IL MODULO BONUS
     </motion.button>
   </a>
 </div>
@@ -360,7 +360,7 @@ const [userCount, setUserCount] = useState(() => {
           <p className="text-lg mb-6">
   Tra {formatTime(timeLeft)} l&apos;offerta SCADE per sempre
 </p>
-
+<a href={process.env.NEXT_PUBLIC_REFERRAL_URL} target="_blank" rel="noopener noreferrer">
           <motion.button
             className="w-full bg-white text-green-600 py-4 px-8 rounded-2xl text-xl font-bold shadow-2xl mb-4"
             whileHover={{ scale: 1.05 }}
@@ -368,6 +368,7 @@ const [userCount, setUserCount] = useState(() => {
           >
             💰 SÌ, VOGLIO I 50€ ORA!
           </motion.button>
+          </a>
           <p className="text-sm opacity-90">
             ✅ Nessun costo nascosto • ✅ Pagamento garantito • ✅ Assistenza 24/7
           </p>
