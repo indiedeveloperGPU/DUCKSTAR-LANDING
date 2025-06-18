@@ -231,7 +231,7 @@ const [userCount, setUserCount] = useState(() => {
               { 
                 step: "3", 
                 title: "RICEVI 50€", 
-                desc: "Su PayPal in 5-30 minuti MAX",
+                desc: "Su PayPal/Conto Corrente in 30 minuti MAX",
                 icon: "💸",
                 color: "bg-blue-500"
               }
