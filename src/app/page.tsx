@@ -438,7 +438,7 @@ export default function DuckstarLanding() {
                       +{testimonial.amount}
                     </span>
                   </div>
-                  <p className="text-gray-700 text-sm italic">&quot;{testimonial.text}&quot;</p>
+                  <p className="text-gray-700 text-sm italic">{`"${testimonial.text}"`}</p>
                   <div className="flex items-center gap-2 mt-1">
                     <p className="text-xs text-gray-500">Ricevuto in {testimonial.time}</p>
                     <span className="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded-full font-bold">
@@ -492,7 +492,7 @@ export default function DuckstarLanding() {
             </ol>
           </div>
           <p className="text-sm opacity-90 italic">
-            "Chi ha invitato 20+ amici ha il 95% di probabilità di vincere!"
+            {`"Chi ha invitato 20+ amici ha il 95% di probabilità di vincere!"`}
           </p>
         </div>
       </section>
