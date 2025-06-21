@@ -117,7 +117,7 @@ export default function DuckstarLanding() {
         <div className="flex items-center justify-center gap-2 px-2">
           <span className="animate-bounce">🚨</span>
           <span className="text-xs sm:text-sm">
-            {bonusLeft} BONUS DA 50€ | {contestSlots}/1000 POSTI CONTEST 2000€ | SCADE: {formatTime(timeLeft)}
+            {bonusLeft} BONUS DA 50€ | MANCANO {contestSlots} AL CONTEST 2000€ | SCADE: {formatTime(timeLeft)}
           </span>
           <span className="animate-bounce">🚨</span>
         </div>
@@ -176,7 +176,7 @@ export default function DuckstarLanding() {
                 style={{ width: `${((1000 - contestSlots) / 1000) * 100}%` }}
               />
               <span className="absolute inset-0 flex items-center justify-center text-xs font-bold text-white">
-                {1000 - contestSlots}/1000 ISCRITTI AL CONTEST
+                {1000 - contestSlots} ISCRITTI | MANCANO {contestSlots} AL JACKPOT!
               </span>
             </div>
             <p className="text-xs text-red-600 font-bold mt-2 animate-pulse">
@@ -371,7 +371,7 @@ export default function DuckstarLanding() {
             </div>
             <div className="bg-white/20 backdrop-blur rounded-xl p-4">
               <p className="font-bold text-lg">💎 CONTEST 2000€</p>
-              <p className="text-2xl font-black">{contestSlots}/1000 MANCANTI</p>
+              <p className="text-2xl font-black">MANCANO {contestSlots} ISCRITTI!</p>
             </div>
           </div>
           <motion.button
@@ -531,7 +531,7 @@ export default function DuckstarLanding() {
       <div className="bg-black text-white py-2 overflow-hidden">
         <div className="animate-marquee whitespace-nowrap">
           <span className="mx-4">🔥 Marco ha invitato 12 amici e guida la classifica!</span>
-          <span className="mx-4">💎 Solo {contestSlots} posti al contest 2000€</span>
+          <span className="mx-4">💎 Solo {contestSlots} posti rimasti per il contest 2000€</span>
           <span className="mx-4">🎯 Francesco con 15 referral è in top 3!</span>
           <span className="mx-4">⚡ Ultimi {bonusLeft} bonus da 50€ disponibili</span>
           <span className="mx-4">🏆 Sara ha appena superato i 10 punti contest!</span>
